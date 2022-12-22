@@ -20,3 +20,13 @@ for (let number of numbers) {
     result.value = currentNumber;
   });
 }
+
+// add event listener to operators
+for (let operator in operators) {
+  operator.addEventListener("click", (e) => {
+    // store number and operator
+    previousNumber = currentNumber;
+    currentNumber = "";
+    operator = e.target.value;
+  });
+}
