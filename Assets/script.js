@@ -10,38 +10,34 @@ let currentNumber = "";
 let previousNumber = "";
 let operator = "";
 
-// add event listeners to numbers
-for (let number of numbers) {
-  number.addEventListener("click", (e) => {
-    // append clicked number
-    currentNumber += e.target.value;
-
-    // update result
-    result.value = currentNumber;
-  });
+// functions
+function setResult(e) {
+  result.value = e;
 }
 
-// add event listener to operators
-for (let ope of operators) {
-  ope.addEventListener("click", (e) => {
-    // store number and operator
-    previousNumber = currentNumber;
-    currentNumber = "";
-    operator = e.target.value;
-  });
+function setCurrentNumber(e) {
+  // append clicked number
+  currentNumber += e;
+  // update result
+  setResult(currentNumber);
 }
 
-// add click to clear button
-clear.addEventListener("click", () => {
+function setOperator(e) {
+  // store number and operator
+  previousNumber = currentNumber;
+  currentNumber = "";
+  operator = e;
+}
+
+function clearResult() {
   // reset values
   currentNumber = "";
   previousNumber = "";
   operator = "";
   result.value = currentNumber;
-});
+}
 
-// add click to equal button
-equal.addEventListener("click", () => {
+function showResult() {
   let prevNum = parseFloat(previousNumber);
   let currNum = parseFloat(currentNumber);
 
@@ -73,23 +69,63 @@ equal.addEventListener("click", () => {
   result.value = resultValue.toFixed(
     isDecimalsGreaterThanMax ? maxDecimals : resultDecimals.length
   );
+}
+
+function deleteLastCharacter() {
+  currentNumber = currentNumber.slice(0, -1);
+  setResult(currentNumber);
+}
+
+// EVENT LISTENERS - CLICK
+// numbers
+for (let number of numbers) {
+  number.addEventListener("click", (e) => {
+    // append clicked number
+    setCurrentNumber(e.target.value);
+  });
+}
+
+//  operators
+for (let ope of operators) {
+  ope.addEventListener("click", (e) => {
+    setOperator(e.target.value);
+  });
+}
+
+// clear button
+clear.addEventListener("click", () => {
+  clearResult();
 });
 
-// add keyboard support
+// equal button
+equal.addEventListener("click", () => {
+  showResult();
+});
+
+// EVENT LISTENERS - KEYBOARD
 document.addEventListener("keydown", (e) => {
-  // check if its a number
+  // numbers
   if (e.key >= "0" && e.key <= "9") {
-    // append pressed number
-    currentNumber += e.key;
-    // update result
-    result.value = currentNumber;
+    setCurrentNumber(e.key);
   }
 
-  // check if its an operator
+  // operators
   if (e.key == "+" || e.key == "-" || e.key == "*" || e.key == "/") {
-    // store previous number and operator
-    previousNumber = currentNumber;
-    currentNumber = "";
-    operator = e.key;
+    setOperator(e.key);
+  }
+
+  // equals & enter button
+  if (e.key == "=" || e.key == "Enter") {
+    showResult();
+  }
+
+  // clear button
+  if (e.key == "c" || e.key == "C") {
+    clearResult();
+  }
+
+  // delete & backspace button
+  if (e.key == "Delete" || e.key == "Backspace") {
+    deleteLastCharacter();
   }
 });
