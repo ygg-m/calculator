@@ -27,7 +27,7 @@ for (let ope of operators) {
     // store number and operator
     previousNumber = currentNumber;
     currentNumber = "";
-    ope = e.target.value;
+    operator = e.target.value;
   });
 }
 
@@ -40,27 +40,30 @@ clear.addEventListener("click", () => {
   result.value = currentNumber;
 });
 
-
 // add click to equal button
 equal.addEventListener("click", () => {
-    let prevNum = parseFloat(previousNumber);
-    let currNum = parseFloat(currentNumber);
-    // perform calculation based on operator
-    switch (operator) {
-      case "+":
-        result.value = prevNum + currNum;
-        break;
-      case "-":
-        result.value = prevNum - currNum;
-        break;
-      case "*":
-        result.value = prevNum * currNum;
-        break;
-      case "/":
-        result.value = prevNum / currNum;
-        break;
-      default:
-        // if no operator is selected
-        result.value = currentNumber;
-    }
-  });
+  let prevNum = parseFloat(previousNumber);
+  let currNum = parseFloat(currentNumber);
+  // perform calculation based on operator
+  switch (operator) {
+    case "+":
+      console.log(operator);
+      result.value = prevNum + currNum;
+      break;
+    case "-":
+      console.log(operator);
+      result.value = prevNum - currNum;
+      break;
+    case "*":
+      console.log(operator);
+      result.value = prevNum * currNum;
+      break;
+    case "/":
+      console.log(operator);
+      result.value = prevNum / currNum;
+      break;
+    default:
+      // if no operator is selected
+      result.value = currentNumber;
+  }
+});
