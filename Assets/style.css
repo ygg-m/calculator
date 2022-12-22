@@ -8,7 +8,7 @@
 }
 
 body {
-  background-color: ##f3efe0;
+  background-color: #f3efe0;
 }
 
 .container {
@@ -136,4 +136,61 @@ button:hover {
 }
 .square {
   grid-area: 6 / 4 / 7 / 5;
+}
+
+.ygg-badge {
+  opacity: 1;
+  position: absolute;
+  right: 0.5rem;
+  top: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  transition: 200ms;
+  align-items: flex-end;
+}
+
+.ygg-badge:hover {
+  opacity: 1;
+}
+
+.ygg-badge > #yggTooltip {
+  user-select: none;
+  background-color: #eee;
+  outline: 1px solid #333;
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  justify-content: end;
+  transition: 200ms;
+  opacity: 0;
+}
+
+.ygg-badge > #yggTooltip.show {
+  opacity: 1;
+}
+
+.ygg-badge > #yggLinks {
+  background-color: #eee;
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  outline: 1px solid #333;
+}
+
+.ygg-badge > #yggLinks > a,
+.ygg-badge > #yggLinks > a:hover {
+  padding: 0.5rem;
+  width: 3rem;
+  height: 3rem;
+  margin: 0;
+  border: 0;
+  background: none;
+}
+
+.ygg-badge > #yggLinks > a:hover {
+  background-color: #7fe9de;
+  outline: 1px solid #333;
+}
+
+.ygg-badge > #yggLinks > a > img {
+  object-fit: cover;
 }
