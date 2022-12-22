@@ -3,6 +3,8 @@ const result = document.getElementById("result");
 const numbers = document.getElementsByClassName("number");
 const operators = document.getElementsByClassName("operator");
 const decimal = document.getElementsByClassName("decimal")[0];
+const backspace = document.getElementsByClassName("backspace")[0];
+const square = document.getElementsByClassName("square")[0];
 const clear = document.getElementsByClassName("clear")[0];
 const equal = document.getElementsByClassName("equal")[0];
 
@@ -30,14 +32,6 @@ function setOperator(e) {
   operator = e;
 }
 
-function clearResult() {
-  // reset values
-  currentNumber = "";
-  previousNumber = "";
-  operator = "";
-  result.value = currentNumber;
-}
-
 function useDecimal() {
   if (currentNumber == "") {
     setCurrentNumber("0.");
@@ -45,6 +39,21 @@ function useDecimal() {
   if (currentNumber.indexOf(".") == -1) {
     setCurrentNumber(".");
   }
+}
+
+function calculateSquare() {
+  let currentNumberFloat = parseFloat(currentNumber);
+  if (isNaN(currentNumberFloat)) {
+    setResult("Invalid input");
+  } else setResult(Math.sqrt(currentNumberFloat));
+}
+
+function clearResult() {
+  // reset values
+  currentNumber = "";
+  previousNumber = "";
+  operator = "";
+  result.value = currentNumber;
 }
 
 function showResult() {
@@ -115,6 +124,16 @@ equal.addEventListener("click", () => {
 // decimal button
 decimal.addEventListener("click", () => {
   useDecimal();
+});
+
+// backpace button
+backspace.addEventListener("click", () => {
+  deleteLastCharacter();
+});
+
+// square button
+square.addEventListener("click", () => {
+  calculateSquare();
 });
 
 // EVENT LISTENERS - KEYBOARD
