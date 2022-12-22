@@ -2,6 +2,7 @@
 const result = document.getElementById("result");
 const numbers = document.getElementsByClassName("number");
 const operators = document.getElementsByClassName("operator");
+const decimal = document.getElementsByClassName("decimal")[0];
 const clear = document.getElementsByClassName("clear")[0];
 const equal = document.getElementsByClassName("equal")[0];
 
@@ -35,6 +36,15 @@ function clearResult() {
   previousNumber = "";
   operator = "";
   result.value = currentNumber;
+}
+
+function useDecimal() {
+  if (currentNumber == "") {
+    setCurrentNumber("0.");
+  }
+  if (currentNumber.indexOf(".") == -1) {
+    setCurrentNumber(".");
+  }
 }
 
 function showResult() {
@@ -102,6 +112,11 @@ equal.addEventListener("click", () => {
   showResult();
 });
 
+// decimal button
+decimal.addEventListener("click", () => {
+  useDecimal();
+});
+
 // EVENT LISTENERS - KEYBOARD
 document.addEventListener("keydown", (e) => {
   // numbers
@@ -127,5 +142,10 @@ document.addEventListener("keydown", (e) => {
   // delete & backspace button
   if (e.key == "Delete" || e.key == "Backspace") {
     deleteLastCharacter();
+  }
+
+  // decimaal
+  if (e.key == "." || e.key == ",") {
+    useDecimal();
   }
 });
