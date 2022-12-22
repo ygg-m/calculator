@@ -1,0 +1,80 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 1rem;
+}
+
+.container {
+  padding: 1rem;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#calculator {
+  height: 100%;
+  min-width: 300px;
+  max-width: 500px;
+  max-height: 600px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-column-gap: 8px;
+  grid-row-gap: 8px;
+}
+
+#result {
+  font-weight: 100;
+  font-size: 3rem;
+  text-align: right;
+  grid-area: 1 / 1 / 2 / 5;
+}
+.num1 {
+  grid-area: 2 / 1 / 3 / 2;
+}
+.num2 {
+  grid-area: 2 / 2 / 3 / 3;
+}
+.num3 {
+  grid-area: 2 / 3 / 3 / 4;
+}
+.addition {
+  grid-area: 2 / 4 / 3 / 5;
+}
+.num4 {
+  grid-area: 3 / 1 / 4 / 2;
+}
+.num5 {
+  grid-area: 3 / 2 / 4 / 3;
+}
+.num6 {
+  grid-area: 3 / 3 / 4 / 4;
+}
+.subtraction {
+  grid-area: 3 / 4 / 4 / 5;
+}
+.num7 {
+  grid-area: 4 / 1 / 5 / 2;
+}
+.num8 {
+  grid-area: 4 / 2 / 5 / 3;
+}
+.num9 {
+  grid-area: 4 / 3 / 5 / 4;
+}
+.multiply {
+  grid-area: 4 / 4 / 5 / 5;
+}
+.clear {
+  grid-area: 5 / 1 / 6 / 2;
+}
+.num0 {
+  grid-area: 5 / 2 / 6 / 3;
+}
+.equal {
+  grid-area: 5 / 3 / 6 / 4;
+}
+.division {
+  grid-area: 5 / 4 / 6 / 5;
+}
