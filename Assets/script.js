@@ -44,26 +44,33 @@ clear.addEventListener("click", () => {
 equal.addEventListener("click", () => {
   let prevNum = parseFloat(previousNumber);
   let currNum = parseFloat(currentNumber);
+
+  let resultValue;
   // perform calculation based on operator
   switch (operator) {
     case "+":
-      console.log(operator);
-      result.value = prevNum + currNum;
+      resultValue = prevNum + currNum;
       break;
     case "-":
-      console.log(operator);
-      result.value = prevNum - currNum;
+      resultValue = prevNum - currNum;
       break;
     case "*":
-      console.log(operator);
-      result.value = prevNum * currNum;
+      resultValue = prevNum * currNum;
       break;
     case "/":
-      console.log(operator);
-      result.value = prevNum / currNum;
+      resultValue = prevNum / currNum;
       break;
     default:
       // if no operator is selected
-      result.value = currentNumber;
+      resultValue = currentNumber;
   }
+
+  // extract decimal
+  let resultDecimals = resultValue.toString().split(".")[1] || "";
+  let maxDecimals = 5;
+  let isDecimalsGreaterThanMax = resultDecimals.length > maxDecimals;
+
+  result.value = resultValue.toFixed(
+    isDecimalsGreaterThanMax ? maxDecimals : resultDecimals.length
+  );
 });
