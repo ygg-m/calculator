@@ -18,7 +18,9 @@ body {
   align-items: center;
   justify-content: center;
 }
+
 #calculator {
+  padding: 1rem;
   height: 100%;
   min-width: 300px;
   max-width: 500px;
@@ -28,6 +30,9 @@ body {
   grid-template-rows: repeat(6, 1fr);
   grid-column-gap: 8px;
   grid-row-gap: 8px;
+
+  background-color: white;
+  box-shadow: 0 0.8rem 1rem rgb(0, 0, 0, 0.08);
 }
 
 #result {
@@ -41,6 +46,38 @@ body {
 button {
   cursor: pointer;
   font-size: 2rem;
+  background: none;
+  border: 1px solid #555;
+  border-bottom: 6px solid #555;
+}
+
+button:hover {
+  margin-top: 5px;
+  border-bottom: 1px solid #555;
+}
+
+.number,
+.decimal {
+  background-color: #eee;
+}
+
+.red {
+  background-color: rgb(253, 168, 168);
+  border-color: rgb(107, 12, 12);
+  color: rgb(107, 12, 12);
+}
+
+.blue,
+.operator {
+  background-color: rgb(168, 215, 253);
+  border-color: rgb(12, 56, 107);
+  color: rgb(12, 56, 107);
+}
+
+.equal {
+  background-color: rgb(168, 253, 203);
+  border-color: rgb(12, 107, 20);
+  color: rgb(12, 107, 20);
 }
 
 .num1 {
