@@ -22,21 +22,21 @@ for (let number of numbers) {
 }
 
 // add event listener to operators
-for (let operator in operators) {
-  operator.addEventListener("click", (e) => {
+for (let ope of operators) {
+  ope.addEventListener("click", (e) => {
     // store number and operator
     previousNumber = currentNumber;
     currentNumber = "";
-    operator = e.target.value;
+    ope = e.target.value;
   });
 }
 
 // add click to clear button
 clear.addEventListener("click", () => {
-    // reset values
-    currentNumber = "";
-    previousNumber = "";
-    operator = "";
-    result.value = currentNumber;
-  });
-  
+  // reset values
+  currentNumber = "";
+  previousNumber = "";
+  operator = "";
+  result.value = currentNumber;
+});
+
