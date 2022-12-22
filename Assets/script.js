@@ -24,7 +24,7 @@ function setCurrentNumber(e) {
 
 function setOperator(e) {
   // store number and operator
-  previousNumber = currentNumber;
+  previousNumber = result.value;
   currentNumber = "";
   operator = e;
 }
