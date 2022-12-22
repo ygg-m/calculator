@@ -1,30 +1,3 @@
-// ygg badge
-const yggTooltip = document.getElementById("yggTooltip");
-const yggLinks = document.getElementById("yggLinks");
-const yggGitHub = document.getElementById("yggGithub");
-const yggLinktree = document.getElementById("yggLinktree");
-const yggTwitter = document.getElementById("yggTwitter");
-
-yggLinks.addEventListener("mouseover", () => {
-  yggTooltip.classList.add("show");
-});
-
-yggLinks.addEventListener("mouseout", () => {
-  yggTooltip.classList.remove("show");
-});
-
-yggGitHub.addEventListener("mouseover", () => {
-  yggTooltip.innerText = "github.com/ygg-m/calculator";
-});
-
-yggLinktree.addEventListener("mouseover", () => {
-  yggTooltip.innerText = "linktr.ee/yggm";
-});
-
-yggTwitter.addEventListener("mouseover", () => {
-  yggTooltip.innerText = "twitter.com/yggm_";
-});
-
 // elements
 const result = document.getElementById("result");
 const numbers = document.getElementsByClassName("number");
