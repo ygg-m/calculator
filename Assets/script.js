@@ -74,3 +74,22 @@ equal.addEventListener("click", () => {
     isDecimalsGreaterThanMax ? maxDecimals : resultDecimals.length
   );
 });
+
+// add keyboard support
+document.addEventListener("keydown", (e) => {
+  // check if its a number
+  if (e.key >= "0" && e.key <= "9") {
+    // append pressed number
+    currentNumber += e.key;
+    // update result
+    result.value = currentNumber;
+  }
+
+  // check if its an operator
+  if (e.key == "+" || e.key == "-" || e.key == "*" || e.key == "/") {
+    // store previous number and operator
+    previousNumber = currentNumber;
+    currentNumber = "";
+    operator = e.key;
+  }
+});
