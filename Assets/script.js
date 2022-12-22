@@ -30,3 +30,13 @@ for (let operator in operators) {
     operator = e.target.value;
   });
 }
+
+// add click to clear button
+clear.addEventListener("click", () => {
+    // reset values
+    currentNumber = "";
+    previousNumber = "";
+    operator = "";
+    result.value = currentNumber;
+  });
+  
