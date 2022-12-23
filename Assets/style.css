@@ -8,6 +8,7 @@
 }
 
 body {
+  position: relative;
   background-color: #f3efe0;
 }
 
